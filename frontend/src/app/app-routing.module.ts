@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component'; // 4. Importing the HomeComponent
+
+
+
+const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  // TODO: set up a component for this
+  // { path: 'home' }, 
+  { path: 'home', component: HomeComponent }, // copying format of RegisterComponent
+
+  // redirect all other paths to /register
+  { path: "**", redirectTo: '/register', pathMatch: "full" }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
